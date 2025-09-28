@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reconnaissance des Intervalles</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ====== MENU ====== -->
+  <div id="menu">
+    <div class="menu-hdr">
+      <h1>Reconnaissance des Intervalles</h1>
+      <img class="hdr-logo" src="logo.png" alt="Logo">
+    </div>
+
+    <!-- Type de jeu -->
+    <div class="card">
+      <h2>Type de jeu</h2>
+      <div class="row"><input type="radio" name="gametype" id="gt-training" value="training" checked><label for="gt-training">Mode Training libre</label></div>
+      <div class="row"><input type="radio" name="gametype" id="gt-level1" value="level1"><label for="gt-level1">Niveau 1</label></div>
+      <div class="row"><input type="radio" name="gametype" id="gt-level2" value="level2"><label for="gt-level2">Niveau 2</label></div>
+      <div class="row"><input type="radio" name="gametype" id="gt-level3" value="level3"><label for="gt-level3">Niveau 3</label></div>
+      <div class="row"><input type="radio" name="gametype" id="gt-level4" value="level4"><label for="gt-level4">Niveau 4</label></div>
+    </div>
+
+    <!-- Mode d'écoute (toujours au choix) -->
+    <div class="card">
+      <h2>Mode d'écoute</h2>
+      <div class="row"><input type="radio" name="mode" id="md-seq" value="sequential" checked><label for="md-seq">Séparé</label></div>
+      <div class="row"><input type="radio" name="mode" id="md-sim" value="simultaneous"><label for="md-sim">Simultané</label></div>
+    </div>
+
+    <!-- Options TRAINING uniquement -->
+    <div class="card training-only">
+      <h2>Intervalles inclus (Training)</h2>
+      <div id="interval-checks" class="checks"></div>
+      <div id="interval-warning" style="color:#d62828; display:none;">Sélectionnez au moins un intervalle.</div>
+      <div style="margin-top:8px; display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+        <button id="select-all-intervals">Tout cocher</button>
+        <button id="deselect-all-intervals">Tout décocher</button>
+        <span id="selected-count" class="mono dim"></span>
+      </div>
+    </div>
+
+    <div class="card training-only">
+      <h2>Amplitude max (octaves)</h2>
+      <div class="row-slider">
+        <input type="range" id="max-octaves" min="0" max="5" value="0">
+        <span id="max-octaves-label">0</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <button id="start-game" style="width:100%;">Commencer</button>
+    </div>
+  </div>
+
+  <!-- ====== JEU ====== -->
+  <div id="game" style="display:none;">
+    <div class="hud">
+      <div class="hud-left">
+        <div id="progress">Question 1/20</div>
+        <div id="score">Score : 0</div>
+        <div id="timing">Temps: 0.0s</div>
+      </div>
+      <img class="hdr-logo" src="logo.png" alt="Logo">
+    </div>
+
+    <!-- Résultats (affichés en haut à la fin) -->
+    <div id="result" class="card"></div>
+
+    <!-- Bloc instruction conservé (masqué via CSS si besoin) -->
+    <div id="question" class="card"></div>
+
+    <!-- Zone des réponses -->
+    <div id="answer-area" class="card">
+      <!-- Zone de feedback FIXE (ne décale pas les boutons) -->
+      <div id="feedback" class="feedback" aria-live="polite"></div>
+
+      <!-- Les boutons sont injectés par JS en 2 colonnes -->
+      <div class="two-cols" id="answer-buttons"></div>
+
+      <!-- Commandes bas -->
+      <div class="buttons-bottom">
+        <button id="replay-interval-seq">Réécouter (séparé)</button>
+        <button id="replay-interval-sim">Réécouter (simultané)</button>
+        <button id="next-question">Passer</button>
+        <button id="back-to-menu">Menu</button>
+        <button id="restart-test">Recommencer</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="app-footer">
+    © 2025 Guillaume Estace — Tous droits réservés
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

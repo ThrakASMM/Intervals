@@ -1,0 +1,190 @@
+:root {
+  --bg: #2f2f2f;
+  --surface: #ffffff;
+  --card: #fafafa;
+  --primary: #0069ff;
+  --warn: #d71e14;
+  --neutral-border: #d0d5dd;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: #111;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#menu, #game {
+  background: var(--surface);
+  width: min(960px, 92vw);
+  padding: clamp(14px, 2.5vw, 20px);
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+/* === entête avec logo intégré === */
+.menu-hdr, .hud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.hud-left > div {
+  line-height: 1.25;
+}
+
+/* logo plus grand */
+.hdr-logo {
+  width: clamp(110px, 20vw, 190px) !important;
+  max-height: 140px;
+  height: auto;
+  object-fit: contain;
+  flex: 0 0 auto;
+  display: block;
+}
+
+/* === zone feedback fixe === */
+#feedback {
+  min-height: 28px;
+  margin: 8px 0 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+}
+#feedback.ok {
+  color: #1f8b24;
+}
+#feedback.err {
+  color: #c62828;
+}
+
+/* === cartes & titres === */
+h2 {
+  margin: 8px 0 14px;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+}
+
+/* === boutons de réponse === */
+#answer-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 12px 0 22px;
+  width: 100%;
+}
+.interval-col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+}
+.interval-btn {
+  padding: clamp(12px, 2vw, 18px);
+  font-size: clamp(0.9rem, 2.2vw, 1.4rem);
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  color: #fff;
+}
+.interval-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.interval-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+.interval-col:first-child .interval-btn { background: #e53935; }
+.interval-col:last-child .interval-btn { background: #1e88e5; }
+
+/* === boutons de contrôle === */
+#controls, #nav-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 14px;
+}
+.ctrl-btn {
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  background: var(--primary);
+  color: #fff;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.ctrl-btn.orange {
+  background: #ff6d00;
+}
+.ctrl-btn.white {
+  background: #fff;
+  color: #333;
+  border: 2px solid #ddd;
+}
+.ctrl-btn:hover {
+  opacity: 0.9;
+}
+
+/* === résultat & images de score === */
+#result {
+  margin-top: 22px;
+  text-align: center;
+  line-height: 1.5;
+}
+.score-img {
+  display: block;
+  margin: 12px auto 16px;
+  max-width: 160px;
+  height: auto;
+}
+
+/* === menu options === */
+#interval-checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  margin-top: 8px;
+}
+#interval-checks label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.92rem;
+}
+#interval-warning {
+  color: var(--warn);
+  margin-top: 8px;
+  font-size: 0.9rem;
+}
+
+/* === footer copyright === */
+footer {
+  margin: 28px 0 20px;
+  font-size: 0.85rem;
+  color: #bbb;
+  text-align: center;
+}
+
+/* === responsive === */
+@media (max-width: 600px) {
+  .interval-btn {
+    font-size: clamp(0.75rem, 3.5vw, 1.1rem);
+    padding: 10px;
+  }
+  .hdr-logo {
+    width: 120px !important;
+  }
+}
