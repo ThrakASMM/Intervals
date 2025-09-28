@@ -2,9 +2,9 @@
 document.addEventListener('DOMContentLoaded', () => {
   // ---- Niveaux (plus de "mode" ici) ----
   const LEVELS = {
-    level1: { intervals: ['m2','M2','m3','M3','P4','P5'], maxOct: 1, questions: 20 },
-    level2: { intervals: ['m2','M2','m3','M3','P4','P5','m6','M6'], maxOct: 2, questions: 20 },
-    level3: { intervals: ['m2','M2','m3','M3','P4','TT','P5','m6','M6','m7','M7'], maxOct: 3, questions: 20 },
+    level1: { intervals: ['m2','M2','m3','M3','P4','P5'], maxOct: 0, questions: 20 },
+    level2: { intervals: ['m2','M2','m3','M3','P4','P5','m6','M6'], maxOct: 1, questions: 20 },
+    level3: { intervals: ['m2','M2','m3','M3','P4','TT','P5','m6','M6','m7','M7'], maxOct: 2, questions: 20 },
     level4: { intervals: ['m2','M2','m3','M3','P4','TT','P5','m6','M6','m7','M7','P8'], maxOct: 5, questions: 20 },
   };
 
